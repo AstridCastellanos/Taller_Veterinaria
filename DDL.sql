@@ -16,7 +16,7 @@ CREATE TABLE Especies (
 );
 
 CREATE TABLE Razas (
-    idRazas INT AUTO_INCREMENT PRIMARY KEY,
+    idRaza INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(60) UNIQUE NOT NULL
 );
 
@@ -27,7 +27,7 @@ CREATE TABLE Tratamientos (
 );
 
 CREATE TABLE Servicios (
-    idServicios INT AUTO_INCREMENT PRIMARY KEY,
+    idServicio INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(60) UNIQUE NOT NULL,
     Descripcion VARCHAR(200) NOT NULL,
     Precio_Base DECIMAL(10,2) NOT NULL
@@ -38,12 +38,22 @@ CREATE TABLE Mascotas (
     Nombre VARCHAR(60) NOT NULL,
     Edad INT NOT NULL,
     Sexo VARCHAR(1) NOT NULL,
-    Vacuna VARCHAR(1),
-    idDuenio INT,
-    idRaza INT,
-    idEspecie INT,
+    Vacunada VARCHAR(1),
+    idDuenio INT NOT NULL,
+    idRaza INT NOT NULL,
+    idEspecie INT NOT NULL,
     FOREIGN KEY (idDuenio) REFERENCES Duenios(idDuenio),
     FOREIGN KEY (idRaza) REFERENCES Razas(idRaza),
     FOREIGN KEY (idEspecie) REFERENCES Especies(idEspecie)
 );
+
+CREATE TABLE Visitas (
+    idVisita INT AUTO_INCREMENT PRIMARY KEY,
+    Fecha DATE NOT NULL,
+    idServicio INT NOT NULL,
+    idMascota INT NOT NULL,
+    FOREIGN KEY (idServicio) REFERENCES Servicios(idServicio),
+    FOREIGN KEY (idMascota) REFERENCES Mascotas(idMascota)
+);
+
 
