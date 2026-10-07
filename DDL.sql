@@ -56,4 +56,10 @@ CREATE TABLE Visitas (
     FOREIGN KEY (idMascota) REFERENCES Mascotas(idMascota)
 );
 
-
+CREATE TABLE Visitas_has_Tratamientos (
+    idVisita INT NOT NULL,
+    idTratamiento INT NOT NULL,
+    PRIMARY KEY (idVisita, idTratamiento),
+    FOREIGN KEY (idVisita) REFERENCES Visitas(idVisita),
+    FOREIGN KEY (idTratamiento) REFERENCES Tratamientos(idTratamiento)
+);
