@@ -9,3 +9,8 @@ CREATE TABLE Duenios (
     Telefono VARCHAR(15) UNIQUE NOT NULL,
     Direccion VARCHAR(200) NOT NULL
 );
+
+CREATE TABLE Especies (
+    idEspecie INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(60) UNIQUE NOT NULL
+);
