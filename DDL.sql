@@ -25,3 +25,10 @@ CREATE TABLE Tratamientos (
     Nombre VARCHAR(100) UNIQUE NOT NULL,
     Observaciones VARCHAR(200) NOT NULL
 );
+
+CREATE TABLE Servicios (
+    idServicios INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(60) UNIQUE NOT NULL,
+    Descripcion VARCHAR(200) NOT NULL,
+    Precio_Base DECIMAL(10,2) NOT NULL
+);
